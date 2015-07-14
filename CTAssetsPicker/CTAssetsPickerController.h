@@ -1,15 +1,14 @@
-# CTAssetsPicker
+//
+//  CTAssetsPickerController.h
+//  CTAssetsPicker
+//
+//  Created by wshaolin on 15/7/9.
+//  Copyright (c) 2015年 神州锐达（北京）科技有限公司. All rights reserved.
+//
 
-从相册选择图片或者视频，已支持图片的预览（放大），暂不支持视频的播放预览。
+#import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
-![Screenshot](Screenshot1.jpg "Screenshot")
-![Screenshot](Screenshot2.jpg "Screenshot")
-![Screenshot](Screenshot3.jpg "Screenshot")
-![Screenshot](Screenshot4.jpg "Screenshot")
-
-### #import "CTAssetsPickerController.h"
-
-```` objective-c
 typedef NS_ENUM(NSInteger, CTAssetsPickerControllerAssetsType){ // Assets type
     CTAssetsPickerControllerAssetsTypePhoto, // Photo
     CTAssetsPickerControllerAssetsTypeVideo, // Video
@@ -56,55 +55,3 @@ typedef NS_ENUM(NSInteger, CTAssetsPickerControllerAssetsType){ // Assets type
 - (void)assetsPickerController:(CTAssetsPickerController *)assetsPickerController didSelectCountUnderEnableMinimumCount:(NSUInteger)enableMinimumCount;
 
 @end
-
-````
-
-```` objective-c
-#import "CTAssetsPickerController.h"
-
-CTAssetsPickerController *assetsPickerController = [[CTAssetsPickerController alloc] initWithAssetsType:CTAssetsPickerControllerAssetsTypeAllAsset];
-assetsPickerController.delegate = self;
-assetsPickerController.enableMaximumCount = 9;
-[self presentViewController:assetsPickerController animated:YES completion:NULL];
-
-- (void)assetsPickerController:(CTAssetsPickerController *)assetsPickerController didFinishPickingAssets:(NSArray *)assets assetsType:(CTAssetsPickerControllerAssetsType)assetsType{
-    NSLog(@"%@", NSStringFromSelector(@selector(assetsPickerController:didFinishPickingAssets:assetsType:)));
-    switch (assetsType) {
-        case CTAssetsPickerControllerAssetsTypePhoto:{
-
-    }
-        break;
-    case CTAssetsPickerControllerAssetsTypeVideo:{
-
-    }
-        break;
-    case CTAssetsPickerControllerAssetsTypeAllAsset:{
-
-    }
-        break;
-    default:
-        break;
-    }
-}
-
-- (void)assetsPickerController:(CTAssetsPickerController *)assetsPickerController didDeselectAsset:(ALAsset *)asset{
-    NSLog(@"%@", NSStringFromSelector(@selector(assetsPickerController:didDeselectAsset:)));
-}
-
-- (void)assetsPickerController:(CTAssetsPickerController *)assetsPickerController didSelectAsset:(ALAsset *)asset{
-    NSLog(@"%@", NSStringFromSelector(@selector(assetsPickerController:didSelectAsset:)));
-}
-
-- (void)assetsPickerController:(CTAssetsPickerController *)assetsPickerController didSelectCountReachedEnableMaximumCount:(NSUInteger)enableMaximumCount{
-    NSLog(@"%@", NSStringFromSelector(@selector(assetsPickerController:didSelectCountReachedEnableMaximumCount:)));
-}
-
-- (void)assetsPickerController:(CTAssetsPickerController *)assetsPickerController didSelectCountUnderEnableMinimumCount:(NSUInteger)enableMinimumCount{
-    NSLog(@"%@", NSStringFromSelector(@selector(assetsPickerController:didSelectCountUnderEnableMinimumCount:)));
-}
-
-- (void)assetsPickerControllerDidCancel:(CTAssetsPickerController *)assetsPickerController{
-    NSLog(@"%@", NSStringFromSelector(@selector(assetsPickerControllerDidCancel:)));
-}
-
-````

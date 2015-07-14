@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D484CC841B53473F001F391F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D484CC831B53473F001F391F /* main.m */; };
+		D484CC8F1B53473F001F391F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D484CC8E1B53473F001F391F /* Images.xcassets */; };
+		D484CC9E1B53473F001F391F /* CTAssetsPickerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D484CC9D1B53473F001F391F /* CTAssetsPickerDemoTests.m */; };
+		D484CCCB1B5348B2001F391F /* CTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D484CCCA1B5348B2001F391F /* CTAppDelegate.m */; };
+		D484CCCE1B53493A001F391F /* CTAssetsPickerDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D484CCCD1B53493A001F391F /* CTAssetsPickerDemoViewController.m */; };
+		D48633311B54F8D500F27DE8 /* ALAsset+CTAssetEqual.m in Sources */ = {isa = PBXBuildFile; fileRef = D48633161B54F8D500F27DE8 /* ALAsset+CTAssetEqual.m */; };
+		D48633321B54F8D500F27DE8 /* CTAssetsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D48633181B54F8D500F27DE8 /* CTAssetsCollectionViewCell.m */; };
+		D48633331B54F8D500F27DE8 /* CTAssetsGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D486331A1B54F8D500F27DE8 /* CTAssetsGroupTableViewCell.m */; };
+		D48633341B54F8D500F27DE8 /* CTAssetsGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D486331C1B54F8D500F27DE8 /* CTAssetsGroupViewController.m */; };
+		D48633351B54F8D500F27DE8 /* CTAssetsPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D486331D1B54F8D500F27DE8 /* CTAssetsPicker.bundle */; };
+		D48633361B54F8D500F27DE8 /* CTAssetsPickerAssetData.m in Sources */ = {isa = PBXBuildFile; fileRef = D48633201B54F8D500F27DE8 /* CTAssetsPickerAssetData.m */; };
+		D48633371B54F8D500F27DE8 /* CTAssetsPickerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D48633221B54F8D500F27DE8 /* CTAssetsPickerCollectionView.m */; };
+		D48633381B54F8D500F27DE8 /* CTAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48633241B54F8D500F27DE8 /* CTAssetsPickerController.m */; };
+		D48633391B54F8D500F27DE8 /* CTAssetsPickerFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D48633261B54F8D500F27DE8 /* CTAssetsPickerFlowLayout.m */; };
+		D486333A1B54F8D500F27DE8 /* CTAssetsPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48633281B54F8D500F27DE8 /* CTAssetsPreviewController.m */; };
+		D486333B1B54F8D500F27DE8 /* CTAssetsToolBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D486332A1B54F8D500F27DE8 /* CTAssetsToolBarButtonItem.m */; };
+		D486333C1B54F8D500F27DE8 /* CTAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D486332C1B54F8D500F27DE8 /* CTAssetsViewController.m */; };
+		D486333D1B54F8D500F27DE8 /* CTAssetsViewToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D486332E1B54F8D500F27DE8 /* CTAssetsViewToolBar.m */; };
+		D486333E1B54F8D500F27DE8 /* CTAssetView.m in Sources */ = {isa = PBXBuildFile; fileRef = D48633301B54F8D500F27DE8 /* CTAssetView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D484CC981B53473F001F391F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D484CC761B53473F001F391F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D484CC7D1B53473F001F391F;
+			remoteInfo = CTAssetsPickerDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D484CC7E1B53473F001F391F /* CTAssetsPickerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CTAssetsPickerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D484CC821B53473F001F391F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D484CC831B53473F001F391F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D484CC8E1B53473F001F391F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D484CC971B53473F001F391F /* CTAssetsPickerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTAssetsPickerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D484CC9C1B53473F001F391F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D484CC9D1B53473F001F391F /* CTAssetsPickerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTAssetsPickerDemoTests.m; sourceTree = "<group>"; };
+		D484CCC91B5348B2001F391F /* CTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAppDelegate.h; sourceTree = "<group>"; };
+		D484CCCA1B5348B2001F391F /* CTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAppDelegate.m; sourceTree = "<group>"; };
+		D484CCCC1B53493A001F391F /* CTAssetsPickerDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsPickerDemoViewController.h; sourceTree = "<group>"; };
+		D484CCCD1B53493A001F391F /* CTAssetsPickerDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsPickerDemoViewController.m; sourceTree = "<group>"; };
+		D48633151B54F8D500F27DE8 /* ALAsset+CTAssetEqual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAsset+CTAssetEqual.h"; sourceTree = "<group>"; };
+		D48633161B54F8D500F27DE8 /* ALAsset+CTAssetEqual.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAsset+CTAssetEqual.m"; sourceTree = "<group>"; };
+		D48633171B54F8D500F27DE8 /* CTAssetsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsCollectionViewCell.h; sourceTree = "<group>"; };
+		D48633181B54F8D500F27DE8 /* CTAssetsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsCollectionViewCell.m; sourceTree = "<group>"; };
+		D48633191B54F8D500F27DE8 /* CTAssetsGroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsGroupTableViewCell.h; sourceTree = "<group>"; };
+		D486331A1B54F8D500F27DE8 /* CTAssetsGroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsGroupTableViewCell.m; sourceTree = "<group>"; };
+		D486331B1B54F8D500F27DE8 /* CTAssetsGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsGroupViewController.h; sourceTree = "<group>"; };
+		D486331C1B54F8D500F27DE8 /* CTAssetsGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsGroupViewController.m; sourceTree = "<group>"; };
+		D486331D1B54F8D500F27DE8 /* CTAssetsPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CTAssetsPicker.bundle; sourceTree = "<group>"; };
+		D486331E1B54F8D500F27DE8 /* CTAssetsPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsPicker.h; sourceTree = "<group>"; };
+		D486331F1B54F8D500F27DE8 /* CTAssetsPickerAssetData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsPickerAssetData.h; sourceTree = "<group>"; };
+		D48633201B54F8D500F27DE8 /* CTAssetsPickerAssetData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsPickerAssetData.m; sourceTree = "<group>"; };
+		D48633211B54F8D500F27DE8 /* CTAssetsPickerCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsPickerCollectionView.h; sourceTree = "<group>"; };
+		D48633221B54F8D500F27DE8 /* CTAssetsPickerCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsPickerCollectionView.m; sourceTree = "<group>"; };
+		D48633231B54F8D500F27DE8 /* CTAssetsPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsPickerController.h; sourceTree = "<group>"; };
+		D48633241B54F8D500F27DE8 /* CTAssetsPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsPickerController.m; sourceTree = "<group>"; };
+		D48633251B54F8D500F27DE8 /* CTAssetsPickerFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsPickerFlowLayout.h; sourceTree = "<group>"; };
+		D48633261B54F8D500F27DE8 /* CTAssetsPickerFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsPickerFlowLayout.m; sourceTree = "<group>"; };
+		D48633271B54F8D500F27DE8 /* CTAssetsPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsPreviewController.h; sourceTree = "<group>"; };
+		D48633281B54F8D500F27DE8 /* CTAssetsPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsPreviewController.m; sourceTree = "<group>"; };
+		D48633291B54F8D500F27DE8 /* CTAssetsToolBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsToolBarButtonItem.h; sourceTree = "<group>"; };
+		D486332A1B54F8D500F27DE8 /* CTAssetsToolBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsToolBarButtonItem.m; sourceTree = "<group>"; };
+		D486332B1B54F8D500F27DE8 /* CTAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsViewController.h; sourceTree = "<group>"; };
+		D486332C1B54F8D500F27DE8 /* CTAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsViewController.m; sourceTree = "<group>"; };
+		D486332D1B54F8D500F27DE8 /* CTAssetsViewToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsViewToolBar.h; sourceTree = "<group>"; };
+		D486332E1B54F8D500F27DE8 /* CTAssetsViewToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsViewToolBar.m; sourceTree = "<group>"; };
+		D486332F1B54F8D500F27DE8 /* CTAssetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetView.h; sourceTree = "<group>"; };
+		D48633301B54F8D500F27DE8 /* CTAssetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D484CC7B1B53473F001F391F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D484CC941B53473F001F391F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D484CC751B53473F001F391F = {
+			isa = PBXGroup;
+			children = (
+				D48633141B54F8D500F27DE8 /* CTAssetsPicker */,
+				D484CC801B53473F001F391F /* CTAssetsPickerDemo */,
+				D484CC9A1B53473F001F391F /* CTAssetsPickerDemoTests */,
+				D484CC7F1B53473F001F391F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D484CC7F1B53473F001F391F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D484CC7E1B53473F001F391F /* CTAssetsPickerDemo.app */,
+				D484CC971B53473F001F391F /* CTAssetsPickerDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D484CC801B53473F001F391F /* CTAssetsPickerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				D484CCC91B5348B2001F391F /* CTAppDelegate.h */,
+				D484CCCA1B5348B2001F391F /* CTAppDelegate.m */,
+				D484CCCC1B53493A001F391F /* CTAssetsPickerDemoViewController.h */,
+				D484CCCD1B53493A001F391F /* CTAssetsPickerDemoViewController.m */,
+				D484CC8E1B53473F001F391F /* Images.xcassets */,
+				D484CC811B53473F001F391F /* Supporting Files */,
+			);
+			path = CTAssetsPickerDemo;
+			sourceTree = "<group>";
+		};
+		D484CC811B53473F001F391F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D484CC821B53473F001F391F /* Info.plist */,
+				D484CC831B53473F001F391F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D484CC9A1B53473F001F391F /* CTAssetsPickerDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				D484CC9D1B53473F001F391F /* CTAssetsPickerDemoTests.m */,
+				D484CC9B1B53473F001F391F /* Supporting Files */,
+			);
+			path = CTAssetsPickerDemoTests;
+			sourceTree = "<group>";
+		};
+		D484CC9B1B53473F001F391F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D484CC9C1B53473F001F391F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D48633141B54F8D500F27DE8 /* CTAssetsPicker */ = {
+			isa = PBXGroup;
+			children = (
+				D48633151B54F8D500F27DE8 /* ALAsset+CTAssetEqual.h */,
+				D48633161B54F8D500F27DE8 /* ALAsset+CTAssetEqual.m */,
+				D48633171B54F8D500F27DE8 /* CTAssetsCollectionViewCell.h */,
+				D48633181B54F8D500F27DE8 /* CTAssetsCollectionViewCell.m */,
+				D48633191B54F8D500F27DE8 /* CTAssetsGroupTableViewCell.h */,
+				D486331A1B54F8D500F27DE8 /* CTAssetsGroupTableViewCell.m */,
+				D486331B1B54F8D500F27DE8 /* CTAssetsGroupViewController.h */,
+				D486331C1B54F8D500F27DE8 /* CTAssetsGroupViewController.m */,
+				D486331D1B54F8D500F27DE8 /* CTAssetsPicker.bundle */,
+				D486331E1B54F8D500F27DE8 /* CTAssetsPicker.h */,
+				D486331F1B54F8D500F27DE8 /* CTAssetsPickerAssetData.h */,
+				D48633201B54F8D500F27DE8 /* CTAssetsPickerAssetData.m */,
+				D48633211B54F8D500F27DE8 /* CTAssetsPickerCollectionView.h */,
+				D48633221B54F8D500F27DE8 /* CTAssetsPickerCollectionView.m */,
+				D48633231B54F8D500F27DE8 /* CTAssetsPickerController.h */,
+				D48633241B54F8D500F27DE8 /* CTAssetsPickerController.m */,
+				D48633251B54F8D500F27DE8 /* CTAssetsPickerFlowLayout.h */,
+				D48633261B54F8D500F27DE8 /* CTAssetsPickerFlowLayout.m */,
+				D48633271B54F8D500F27DE8 /* CTAssetsPreviewController.h */,
+				D48633281B54F8D500F27DE8 /* CTAssetsPreviewController.m */,
+				D48633291B54F8D500F27DE8 /* CTAssetsToolBarButtonItem.h */,
+				D486332A1B54F8D500F27DE8 /* CTAssetsToolBarButtonItem.m */,
+				D486332B1B54F8D500F27DE8 /* CTAssetsViewController.h */,
+				D486332C1B54F8D500F27DE8 /* CTAssetsViewController.m */,
+				D486332D1B54F8D500F27DE8 /* CTAssetsViewToolBar.h */,
+				D486332E1B54F8D500F27DE8 /* CTAssetsViewToolBar.m */,
+				D486332F1B54F8D500F27DE8 /* CTAssetView.h */,
+				D48633301B54F8D500F27DE8 /* CTAssetView.m */,
+			);
+			path = CTAssetsPicker;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D484CC7D1B53473F001F391F /* CTAssetsPickerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D484CCA11B53473F001F391F /* Build configuration list for PBXNativeTarget "CTAssetsPickerDemo" */;
+			buildPhases = (
+				D484CC7A1B53473F001F391F /* Sources */,
+				D484CC7B1B53473F001F391F /* Frameworks */,
+				D484CC7C1B53473F001F391F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CTAssetsPickerDemo;
+			productName = CTAssetsPickerDemo;
+			productReference = D484CC7E1B53473F001F391F /* CTAssetsPickerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D484CC961B53473F001F391F /* CTAssetsPickerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D484CCA41B53473F001F391F /* Build configuration list for PBXNativeTarget "CTAssetsPickerDemoTests" */;
+			buildPhases = (
+				D484CC931B53473F001F391F /* Sources */,
+				D484CC941B53473F001F391F /* Frameworks */,
+				D484CC951B53473F001F391F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D484CC991B53473F001F391F /* PBXTargetDependency */,
+			);
+			name = CTAssetsPickerDemoTests;
+			productName = CTAssetsPickerDemoTests;
+			productReference = D484CC971B53473F001F391F /* CTAssetsPickerDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D484CC761B53473F001F391F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "神州锐达（北京）科技有限公司";
+				TargetAttributes = {
+					D484CC7D1B53473F001F391F = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					D484CC961B53473F001F391F = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = D484CC7D1B53473F001F391F;
+					};
+				};
+			};
+			buildConfigurationList = D484CC791B53473F001F391F /* Build configuration list for PBXProject "CTAssetsPickerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D484CC751B53473F001F391F;
+			productRefGroup = D484CC7F1B53473F001F391F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D484CC7D1B53473F001F391F /* CTAssetsPickerDemo */,
+				D484CC961B53473F001F391F /* CTAssetsPickerDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D484CC7C1B53473F001F391F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D484CC8F1B53473F001F391F /* Images.xcassets in Resources */,
+				D48633351B54F8D500F27DE8 /* CTAssetsPicker.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D484CC951B53473F001F391F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D484CC7A1B53473F001F391F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D48633311B54F8D500F27DE8 /* ALAsset+CTAssetEqual.m in Sources */,
+				D484CCCB1B5348B2001F391F /* CTAppDelegate.m in Sources */,
+				D484CCCE1B53493A001F391F /* CTAssetsPickerDemoViewController.m in Sources */,
+				D48633381B54F8D500F27DE8 /* CTAssetsPickerController.m in Sources */,
+				D48633331B54F8D500F27DE8 /* CTAssetsGroupTableViewCell.m in Sources */,
+				D48633321B54F8D500F27DE8 /* CTAssetsCollectionViewCell.m in Sources */,
+				D484CC841B53473F001F391F /* main.m in Sources */,
+				D48633361B54F8D500F27DE8 /* CTAssetsPickerAssetData.m in Sources */,
+				D48633371B54F8D500F27DE8 /* CTAssetsPickerCollectionView.m in Sources */,
+				D48633391B54F8D500F27DE8 /* CTAssetsPickerFlowLayout.m in Sources */,
+				D486333E1B54F8D500F27DE8 /* CTAssetView.m in Sources */,
+				D486333C1B54F8D500F27DE8 /* CTAssetsViewController.m in Sources */,
+				D486333A1B54F8D500F27DE8 /* CTAssetsPreviewController.m in Sources */,
+				D486333D1B54F8D500F27DE8 /* CTAssetsViewToolBar.m in Sources */,
+				D486333B1B54F8D500F27DE8 /* CTAssetsToolBarButtonItem.m in Sources */,
+				D48633341B54F8D500F27DE8 /* CTAssetsGroupViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D484CC931B53473F001F391F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D484CC9E1B53473F001F391F /* CTAssetsPickerDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D484CC991B53473F001F391F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D484CC7D1B53473F001F391F /* CTAssetsPickerDemo */;
+			targetProxy = D484CC981B53473F001F391F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D484CC9F1B53473F001F391F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: R&D China Information Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: R&D China Information Technology Co., Ltd.";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "45a074d6-daee-4592-a1da-91834894685e";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D484CCA01B53473F001F391F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: R&D China Information Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: R&D China Information Technology Co., Ltd.";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "45a074d6-daee-4592-a1da-91834894685e";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D484CCA21B53473F001F391F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: R&D China Information Technology Co., Ltd.";
+				INFOPLIST_FILE = CTAssetsPickerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "45a074d6-daee-4592-a1da-91834894685e";
+			};
+			name = Debug;
+		};
+		D484CCA31B53473F001F391F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: R&D China Information Technology Co., Ltd.";
+				INFOPLIST_FILE = CTAssetsPickerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "45a074d6-daee-4592-a1da-91834894685e";
+			};
+			name = Release;
+		};
+		D484CCA51B53473F001F391F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CTAssetsPickerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CTAssetsPickerDemo.app/CTAssetsPickerDemo";
+			};
+			name = Debug;
+		};
+		D484CCA61B53473F001F391F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CTAssetsPickerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CTAssetsPickerDemo.app/CTAssetsPickerDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D484CC791B53473F001F391F /* Build configuration list for PBXProject "CTAssetsPickerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D484CC9F1B53473F001F391F /* Debug */,
+				D484CCA01B53473F001F391F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D484CCA11B53473F001F391F /* Build configuration list for PBXNativeTarget "CTAssetsPickerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D484CCA21B53473F001F391F /* Debug */,
+				D484CCA31B53473F001F391F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D484CCA41B53473F001F391F /* Build configuration list for PBXNativeTarget "CTAssetsPickerDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D484CCA51B53473F001F391F /* Debug */,
+				D484CCA61B53473F001F391F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D484CC761B53473F001F391F /* Project object */;
+}
