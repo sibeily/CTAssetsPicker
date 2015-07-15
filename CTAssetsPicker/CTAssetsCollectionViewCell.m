@@ -104,8 +104,10 @@
 
 - (void)didClickSelectButton:(UIButton *)button{
     BOOL shouldSelection = YES;
-    if(self.delegate && [self.delegate respondsToSelector:@selector(assetsCollectionViewCell:shouldSelectAtIndexPath:)]){
-        shouldSelection = [self.delegate assetsCollectionViewCell:self shouldSelectAtIndexPath:self.indexPath];
+    if(!button.isSelected){
+        if(self.delegate && [self.delegate respondsToSelector:@selector(assetsCollectionViewCell:shouldSelectAtIndexPath:)]){
+            shouldSelection = [self.delegate assetsCollectionViewCell:self shouldSelectAtIndexPath:self.indexPath];
+        }
     }
     
     if(shouldSelection){

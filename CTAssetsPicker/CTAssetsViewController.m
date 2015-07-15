@@ -151,7 +151,7 @@
 }
 
 - (void)assetsViewToolBarDidCompleted:(CTAssetsViewToolBar *)assetsViewToolBar{
-    if(_assetsPickerController.delegate > 0 && _selectAssets.count < _assetsPickerController.enableMinimumCount){
+    if(_assetsPickerController.enableMinimumCount > 0 && _selectAssets.count < _assetsPickerController.enableMinimumCount){
         if(_assetsPickerController.delegate && [_assetsPickerController.delegate respondsToSelector:@selector(assetsPickerController:didSelectCountUnderEnableMinimumCount:)]){
             [_assetsPickerController.delegate assetsPickerController:_assetsPickerController didSelectCountUnderEnableMinimumCount:_assetsPickerController.enableMinimumCount];
         }

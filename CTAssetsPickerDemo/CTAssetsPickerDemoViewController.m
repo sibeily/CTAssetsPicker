@@ -47,7 +47,8 @@
 - (void)clickOpenAlbumButton:(UIButton *)button{
     CTAssetsPickerController *assetsPickerController = [[CTAssetsPickerController alloc] initWithAssetsType:CTAssetsPickerControllerAssetsTypeAllAsset];
     assetsPickerController.delegate = self;
-    assetsPickerController.enableMaximumCount = 9;
+    assetsPickerController.enableMaximumCount = 0;
+    assetsPickerController.enableMinimumCount = 2;
     [self presentViewController:assetsPickerController animated:YES completion:NULL];
 }
 
