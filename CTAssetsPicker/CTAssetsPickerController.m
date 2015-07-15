@@ -9,37 +9,21 @@
 #import "CTAssetsPickerController.h"
 #import "CTAssetsGroupViewController.h"
 
-@interface CTAssetsPickerController (){
-    CTAssetsGroupViewController *_assetsGroupViewController;
-}
-
-@end
-
 @implementation CTAssetsPickerController
 
 @dynamic delegate;
 
 - (instancetype)init{
-    CTAssetsGroupViewController *assetsGroupViewController = [[CTAssetsGroupViewController alloc] init];
-    if(self = [super initWithRootViewController:assetsGroupViewController]){
-        _assetsType = CTAssetsPickerControllerAssetsTypePhoto;
-        _assetsFilter = [ALAssetsFilter allPhotos];
-        _finishDismissViewController = YES;
-        _assetsGroupViewController = assetsGroupViewController;
-        
-        self.navigationBar.hidden = NO;
-        [UIApplication sharedApplication].statusBarHidden = NO;
+    if(self = [super initWithRootViewController:[[CTAssetsGroupViewController alloc] init]]){
+        [self _init];
     }
     return self;
 }
 
 - (instancetype)initWithAssetsType:(CTAssetsPickerControllerAssetsType)assetsType{
-    CTAssetsGroupViewController *assetsGroupViewController = [[CTAssetsGroupViewController alloc] init];
-    if(self = [super initWithRootViewController:assetsGroupViewController]){
+    if(self = [super initWithRootViewController:[[CTAssetsGroupViewController alloc] init]]){
+        [self _init];
         _assetsType = assetsType;
-        _finishDismissViewController = YES;
-        _assetsGroupViewController = assetsGroupViewController;
-        
         switch (assetsType) {
             case CTAssetsPickerControllerAssetsTypePhoto:{
                 _assetsFilter = [ALAssetsFilter allPhotos];
@@ -56,27 +40,44 @@
             default:
                 break;
         }
-        
-        self.navigationBar.hidden = NO;
-        [UIApplication sharedApplication].statusBarHidden = NO;
     }
     return self;
 }
 
+- (instancetype)initWithRootViewController:(UIViewController *)rootViewController{
+    if(self = [super initWithRootViewController:[[CTAssetsGroupViewController alloc] init]]){
+        [self _init];
+    }
+    return self;
+}
+
+- (void)_init{
+    _assetsType = CTAssetsPickerControllerAssetsTypePhoto;
+    _assetsFilter = [ALAssetsFilter allPhotos];
+    _finishDismissViewController = YES;
+    
+    self.navigationBar.hidden = NO;
+    [UIApplication sharedApplication].statusBarHidden = NO;
+}
+
 - (NSArray *)selectedAssets{
-    return _assetsGroupViewController.selectedAssets;
+    CTAssetsGroupViewController *assetsGroupViewController = (CTAssetsGroupViewController *)self.topViewController;
+    return assetsGroupViewController.selectedAssets;
 }
 
 - (void)deselectAssetAtIndex:(NSUInteger)index{
-    [_assetsGroupViewController deselectAssetAtIndex:index];
+    CTAssetsGroupViewController *assetsGroupViewController = (CTAssetsGroupViewController *)self.topViewController;
+    [assetsGroupViewController deselectAssetAtIndex:index];
 }
 
 - (void)setToolbarItemBackgroundColor:(UIColor *)toolbarItemBackgroundColor{
-    [_assetsGroupViewController setToolbarItemBackgroundColor:toolbarItemBackgroundColor];
+    CTAssetsGroupViewController *assetsGroupViewController = (CTAssetsGroupViewController *)self.topViewController;
+    [assetsGroupViewController setToolbarItemBackgroundColor:toolbarItemBackgroundColor];
 }
 
 - (void)setToolbarItemFontColor:(UIColor *)toolbarItemFontColor{
-    [_assetsGroupViewController setToolbarItemFontColor:toolbarItemFontColor];
+    CTAssetsGroupViewController *assetsGroupViewController = (CTAssetsGroupViewController *)self.topViewController;
+    [assetsGroupViewController setToolbarItemFontColor:toolbarItemFontColor];
 }
 
 @end

@@ -190,7 +190,7 @@ static inline NSInteger CTAssetsPreviewControllerViewIndexFromAssetView(CTAssetV
             }
         }
     }
-    _currentAssetIndex = (NSInteger)(_assetScrollView.contentOffset.x / _assetScrollView.frame.size.width);
+    _currentAssetIndex = (NSUInteger)lroundf(_assetScrollView.contentOffset.x / _assetScrollView.frame.size.width);
     if(_currentAssetIndex >= _assetDataArray.count){
         _currentAssetIndex = _assetDataArray.count - 1;
     }

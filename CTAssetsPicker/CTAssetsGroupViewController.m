@@ -128,7 +128,6 @@
             _noDataLabel.text = [NSString stringWithFormat:errorMessage, bundleDisplayName, bundleDisplayName];
         }
         [self reloadData];
-        NSLog(@"ALAssetsLibraryAccessFailureBlockError: %@", error);
     };
     
     [_assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:assetsLibraryGroupsEnumerationResultsBlock failureBlock:assetsLibraryAccessFailureBlock];

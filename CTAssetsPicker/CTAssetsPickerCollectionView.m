@@ -9,7 +9,7 @@
 #import "CTAssetsPickerCollectionView.h"
 
 @interface CTAssetsPickerCollectionView(){
-    BOOL _isNeedScrollToBottom;
+    BOOL _isNeedAutoScrollToBottom;
 }
 
 @end
@@ -23,6 +23,8 @@
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.backgroundView = nil;
         self.backgroundColor = [UIColor whiteColor];
+        
+        _isNeedAutoScrollToBottom = YES;
     }
     return self;
 }
@@ -70,14 +72,17 @@
 - (void)setContentSize:(CGSize)contentSize{
     [super setContentSize:contentSize];
     
-    if(!_isNeedScrollToBottom && contentSize.height > self.frame.size.height){
-        _isNeedScrollToBottom = YES;
+    if(_isNeedAutoScrollToBottom && contentSize.height > self.frame.size.height){
         [self scrollToBottom];
+        _isNeedAutoScrollToBottom = NO;
     }
 }
 
 - (void)scrollToBottom{
-    [self setContentOffset:CGPointMake(0, self.contentSize.height - self.frame.size.height + self.contentInsetBottom) animated:NO];
+    CGFloat offsetY = self.contentSize.height - self.frame.size.height + self.contentInsetBottom;
+    if(offsetY > 0){
+        [self setContentOffset:CGPointMake(0, offsetY) animated:NO];
+    }
 }
 
 @end
