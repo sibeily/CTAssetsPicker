@@ -51,7 +51,7 @@
 }
 
 - (void)setAssetData:(CTAssetsPickerAssetData *)assetData{
-    _imageView.image = [UIImage imageWithCGImage:[[assetData.asset defaultRepresentation] fullResolutionImage]];
+    _imageView.image = [UIImage imageWithCGImage:[[assetData.asset defaultRepresentation] fullScreenImage]];
     [self adjustFrame];
 }
 
@@ -68,8 +68,10 @@
         CGFloat height = imageHeight * boundsWidth / imageWidth;
         
         CGFloat maximumZoomScale = 2.0;
-        // 保证放大之后至少占满屏幕
-        if(_imageView.image.size.width > 10.0 && _imageView.image.size.height > 10.0){
+        // 保证放大之后至少占满屏幕，太小的图片最大只能放大2倍
+        CGFloat maxValue = MAX(_imageView.image.size.width, _imageView.image.size.height);
+        CGFloat minValue = MIN(_imageView.image.size.width, _imageView.image.size.height);
+        if(maxValue > 100.0 && minValue > 0 && (maxValue / minValue) < 2.5){
             CGSize screenSize = [UIScreen mainScreen].bounds.size;
             if(maximumZoomScale < screenSize.height / height){
                 maximumZoomScale = screenSize.height / height;

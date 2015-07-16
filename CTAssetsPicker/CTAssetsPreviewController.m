@@ -110,27 +110,17 @@ static inline NSInteger CTAssetsPreviewControllerViewIndexFromAssetView(CTAssetV
             if(_assetsPickerController.delegate && [_assetsPickerController.delegate respondsToSelector:@selector(assetsPickerController:didSelectCountReachedEnableMaximumCount:)]){
                 [_assetsPickerController.delegate assetsPickerController:_assetsPickerController didSelectCountReachedEnableMaximumCount:_assetsPickerController.enableMaximumCount];
             }
-        shouldSelection = NO;
+            shouldSelection = NO;
         }
     }
     
     if(shouldSelection){
-        barButtonItem.selected = !barButtonItem.isSelected;
         if(_currentAssetIndex < _assetDataArray.count){
+            barButtonItem.selected = !barButtonItem.isSelected;
             CTAssetsPickerAssetData *assetData = _assetDataArray[_currentAssetIndex];
             assetData.selected = barButtonItem.isSelected;
             if(self.delegate && [self.delegate respondsToSelector:@selector(assetsPreviewController:didSelectedAssetData:)]){
                 [self.delegate assetsPreviewController:self didSelectedAssetData:assetData];
-            }
-            
-            if(barButtonItem.isSelected){
-                if(_assetsPickerController.delegate && [_assetsPickerController.delegate respondsToSelector:@selector(assetsPickerController:didSelectAsset:)]){
-                    [_assetsPickerController.delegate assetsPickerController:_assetsPickerController didSelectAsset:assetData.asset];
-                }
-            }else{
-                if(_assetsPickerController.delegate && [_assetsPickerController.delegate respondsToSelector:@selector(assetsPickerController:didDeselectAsset:)]){
-                    [_assetsPickerController.delegate assetsPickerController:_assetsPickerController didDeselectAsset:assetData.asset];
-                }
             }
         }
     }

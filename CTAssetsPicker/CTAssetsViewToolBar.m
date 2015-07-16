@@ -38,7 +38,7 @@
         [_contentView addSubview:_previewItem];
         [_contentView addSubview:_completeItem];
         
-        self.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+        self.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     }
     return self;
 }

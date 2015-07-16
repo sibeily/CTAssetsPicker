@@ -224,13 +224,18 @@
     if(assetData.isSelected){
         [_selectAssetDatas addObject:assetData];
         [_selectAssets addObject:assetData.asset];
+        if(_assetsPickerController.delegate && [_assetsPickerController.delegate respondsToSelector:@selector(assetsPickerController:didSelectAsset:)]){
+            [_assetsPickerController.delegate assetsPickerController:_assetsPickerController didSelectAsset:assetData.asset];
+        }
     }else{
         [_selectAssetDatas removeObject:assetData];
         [_selectAssets removeObject:assetData.asset];
+        if(_assetsPickerController.delegate && [_assetsPickerController.delegate respondsToSelector:@selector(assetsPickerController:didDeselectAsset:)]){
+            [_assetsPickerController.delegate assetsPickerController:_assetsPickerController didDeselectAsset:assetData.asset];
+        }
     }
     _toolBar.selectedCount = _selectAssets.count;
     assetsPreviewController.seletedCount = _selectAssets.count;
 }
-
 
 @end
