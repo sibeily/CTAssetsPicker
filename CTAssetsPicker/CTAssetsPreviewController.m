@@ -12,22 +12,13 @@
 #import "CTAssetsPickerController.h"
 #import "CTAssetsPickerAssetData.h"
 #import "CTAssetsToolBarButtonItem.h"
+#import "CTAssetsPreviewCollectionViewCell.h"
 
-#define CTAssetsPreviewControllerViewPadding 10.0
-#define CTAssetsPreviewControllerViewTagOffset 1000
-
-static inline NSInteger CTAssetsPreviewControllerViewIndexFromAssetView(CTAssetView *assetView){
-    return assetView.tag - CTAssetsPreviewControllerViewTagOffset;
-}
-
-@interface CTAssetsPreviewController ()<UIScrollViewDelegate, CTAssetsViewToolBarDelegate, CTAssetViewDelegate>{
-    UIScrollView *_assetScrollView;
-    
-    NSMutableSet *_visibleAssetViews;
-    NSMutableSet *_reusableAssetViews;
-    
+@interface CTAssetsPreviewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, CTAssetsPreviewCollectionViewCellDelegate, CTAssetsViewToolBarDelegate>{
+    UICollectionView *_collectionView;
     CTAssetsViewToolBar *_toolBar;
     CTAssetsToolBarButtonItem *_selectBarButtonItem;
+    
     BOOL _initialStatusBarHidden;
     BOOL _initialNavigationBarTranslucent;
     
@@ -55,6 +46,25 @@ static inline NSInteger CTAssetsPreviewControllerViewIndexFromAssetView(CTAssetV
         _selectBarButtonItem.backgroundColor = [UIColor clearColor];
         [_selectBarButtonItem addTarget:self action:@selector(didClickSelectBarButtonItem:)];
         _selectBarButtonItem.frame = CGRectMake(0, 0, 40.0, 40.0);
+        
+        UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+        collectionViewFlowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        collectionViewFlowLayout.sectionInset = UIEdgeInsetsZero;
+        collectionViewFlowLayout.minimumInteritemSpacing = 0.0;
+        collectionViewFlowLayout.minimumLineSpacing = 0.0;
+        collectionViewFlowLayout.headerReferenceSize = CGSizeZero;
+        collectionViewFlowLayout.footerReferenceSize = CGSizeZero;
+        
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:collectionViewFlowLayout];
+        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
+        _collectionView.pagingEnabled = YES;
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        _collectionView.showsVerticalScrollIndicator = NO;
+        _collectionView.backgroundView = nil;
+        _collectionView.backgroundColor = [UIColor clearColor];
+        _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        [_collectionView registerClass:[CTAssetsPreviewCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([CTAssetsPreviewCollectionViewCell class])];
     }
     return self;
 }
@@ -82,25 +92,31 @@ static inline NSInteger CTAssetsPreviewControllerViewIndexFromAssetView(CTAssetV
     _toolBar.enableMaximumCount = _assetsPickerController.enableMaximumCount;
     [UIApplication sharedApplication].statusBarHidden = NO;
     
-    CGRect assetScrollViewFrame = self.view.bounds;
-    assetScrollViewFrame.origin.x -= CTAssetsPreviewControllerViewPadding;
-    assetScrollViewFrame.size.width += (2 * CTAssetsPreviewControllerViewPadding);
-    _assetScrollView = [[UIScrollView alloc] initWithFrame:assetScrollViewFrame];
-    
-    _assetScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _assetScrollView.pagingEnabled = YES;
-    _assetScrollView.delegate = self;
-    _assetScrollView.showsHorizontalScrollIndicator = NO;
-    _assetScrollView.showsVerticalScrollIndicator = NO;
-    _assetScrollView.backgroundColor = [UIColor clearColor];
-    _assetScrollView.contentSize = CGSizeMake(assetScrollViewFrame.size.width * _assetDataArray.count, 0);
-    _assetScrollView.contentOffset = CGPointMake(_currentAssetIndex * assetScrollViewFrame.size.width, 0);
-    [self.view addSubview:_assetScrollView];
+    // CTAssetsPreviewCollectionView的宽度多加CTAssetsPreviewCollectionViewCellImageRightIntervalSpacing
+    // CTAssetsPreviewCollectionViewCell的Size等于CTAssetsPreviewCollectionView的Size
+    // CTAssetsPreviewCollectionViewCell上的imageView的宽度减CTAssetsPreviewCollectionViewCellImageRightIntervalSpacing
+    // 这样就留出了图片之间的空隙，空隙值为CTAssetsPreviewCollectionViewCellImageRightIntervalSpacing
+    CGRect collectionViewFrame = self.view.bounds;
+    collectionViewFrame.size.width += CTAssetsPreviewCollectionViewCellImageRightIntervalSpacing;
+    _collectionView.frame = collectionViewFrame;
+    [self.view addSubview:_collectionView];
     
     _toolBar.translucent = self.navigationController.navigationBar.isTranslucent;
     _toolBar.frame = CGRectMake(0, self.view.bounds.size.height - _toolBar.frame.size.height, 0, 0);
     [self.view addSubview:_toolBar];
-    [self showAsset];
+    
+    // 滚动到指定的row
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_currentAssetIndex inSection:0];
+    if(self.assetDataArray.count > 0 && _currentAssetIndex < self.assetDataArray.count){
+        [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionRight animated:NO];
+        CTAssetsPickerAssetData *assetData = _assetDataArray[indexPath.row];
+        _selectBarButtonItem.selected = assetData.isSelected;
+    }
+}
+
+- (void)setSeletedCount:(NSInteger)seletedCount{
+    _seletedCount = seletedCount;
+    _toolBar.selectedCount = seletedCount;
 }
 
 - (void)didClickSelectBarButtonItem:(CTAssetsToolBarButtonItem *)barButtonItem{
@@ -126,106 +142,7 @@ static inline NSInteger CTAssetsPreviewControllerViewIndexFromAssetView(CTAssetV
     }
 }
 
-- (void)setSeletedCount:(NSInteger)seletedCount{
-    _seletedCount = seletedCount;
-    _toolBar.selectedCount = seletedCount;
-}
-
-- (void)setAssetDataArray:(NSArray *)assetDataArray{
-    _assetDataArray = assetDataArray;
-    
-    if(assetDataArray.count > 1){
-        _visibleAssetViews = [NSMutableSet set];
-        _reusableAssetViews = [NSMutableSet set];
-    }
-}
-
-- (void)showAsset{
-    if (_assetDataArray.count == 1) {
-        [self showAssetViewAtIndex:0];
-    }else{
-        CGRect visibleBounds = _assetScrollView.bounds;
-        NSInteger firstIndex = (NSInteger)floorf((CGRectGetMinX(visibleBounds) + CTAssetsPreviewControllerViewPadding * 2) / CGRectGetWidth(visibleBounds));
-        NSInteger lastIndex  = (NSInteger)floorf((CGRectGetMaxX(visibleBounds) - CTAssetsPreviewControllerViewPadding * 2 - 1) / CGRectGetWidth(visibleBounds));
-        if (firstIndex < 0){
-            firstIndex = 0;
-        }
-        if (firstIndex >= _assetDataArray.count){
-            firstIndex = _assetDataArray.count - 1;
-        }
-        if (lastIndex < 0){
-            lastIndex = 0;
-        }
-        if (lastIndex >= _assetDataArray.count){
-            lastIndex = _assetDataArray.count - 1;
-        }
-        
-        // 回收不再显示的View
-        for (CTAssetView *assetView in _visibleAssetViews) {
-            NSInteger assetIndex = CTAssetsPreviewControllerViewIndexFromAssetView(assetView);
-            if (assetIndex < firstIndex || assetIndex > lastIndex) {
-                [_reusableAssetViews addObject:assetView];
-                [assetView removeFromSuperview];
-            }
-        }
-    
-        [_visibleAssetViews minusSet:_reusableAssetViews];
-        while (_reusableAssetViews.count > 2) {
-            [_reusableAssetViews removeObject:[_reusableAssetViews anyObject]];
-        }
-        
-        for (NSUInteger index = firstIndex; index <= lastIndex; index ++) {
-            if (![self isShowingAssetViewAtIndex:index]) {
-                [self showAssetViewAtIndex:index];
-            }
-        }
-    }
-    _currentAssetIndex = (NSUInteger)lroundf(_assetScrollView.contentOffset.x / _assetScrollView.frame.size.width);
-    if(_currentAssetIndex >= _assetDataArray.count){
-        _currentAssetIndex = _assetDataArray.count - 1;
-    }
-    CTAssetsPickerAssetData *assetData = _assetDataArray[_currentAssetIndex];
-    _selectBarButtonItem.selected = assetData.isSelected;
-}
-
-- (BOOL)isShowingAssetViewAtIndex:(NSUInteger)index {
-    for (CTAssetView *assetView in _visibleAssetViews) {
-        if (CTAssetsPreviewControllerViewIndexFromAssetView(assetView) == index) {
-            return YES;
-        }
-    }
-    return  NO;
-}
-
-- (CTAssetView *)dequeueReusableAssetView{
-    CTAssetView *assetView = [_reusableAssetViews anyObject];
-    if (assetView != nil) {
-        [_reusableAssetViews removeObject:assetView];
-    }
-    return assetView;
-}
-
-- (void)showAssetViewAtIndex:(NSUInteger)index{
-    CTAssetView *assetView = [self dequeueReusableAssetView];
-    if (assetView == nil) {
-        assetView = [[CTAssetView alloc] init];
-        assetView.customDelegate = self;
-    }
-    
-    // 调整当期页的frame
-    CGRect bounds = _assetScrollView.bounds;
-    CGRect assetViewFrame = bounds;
-    assetViewFrame.size.width -= (2 * CTAssetsPreviewControllerViewPadding);
-    assetViewFrame.origin.x = (bounds.size.width * index) + CTAssetsPreviewControllerViewPadding;
-    assetView.tag = CTAssetsPreviewControllerViewTagOffset + index;
-    assetView.frame = assetViewFrame;
-    assetView.assetData = _assetDataArray[index];
-    
-    [_visibleAssetViews addObject:assetView];
-    [_assetScrollView addSubview:assetView];
-}
-
-- (void)assetViewDidSingleTouch:(CTAssetView *)assetView{
+- (void)assetsPreviewCollectionViewCellDidSingleTouch:(CTAssetsPreviewCollectionViewCell *)collectionViewCell{
     BOOL animated = YES;
     if(self.navigationController.navigationBar.hidden){
         [_toolBar show:animated];
@@ -238,16 +155,34 @@ static inline NSInteger CTAssetsPreviewControllerViewIndexFromAssetView(CTAssetV
     }
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if(_assetDataArray.count > 1){
-        [self showAsset];
-    }
-}
-
 - (void)assetsViewToolBarDidCompleted:(CTAssetsViewToolBar *)assetsViewToolBar{
     if(self.delegate && [self.delegate respondsToSelector:@selector(assetsPreviewControllerDidCompleted:)]){
         [self.delegate assetsPreviewControllerDidCompleted:self];
     }
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return _assetDataArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    CTAssetsPreviewCollectionViewCell *cell = [CTAssetsPreviewCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
+    cell.assetData = _assetDataArray[indexPath.row];
+    cell.delegate = self;
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return collectionView.bounds.size;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    _currentAssetIndex = (NSUInteger)lroundf(scrollView.contentOffset.x / scrollView.frame.size.width);
+    if(_currentAssetIndex >= _assetDataArray.count){
+        _currentAssetIndex = _assetDataArray.count - 1;
+    }
+    CTAssetsPickerAssetData *assetData = _assetDataArray[_currentAssetIndex];
+    _selectBarButtonItem.selected = assetData.isSelected;
 }
 
 @end

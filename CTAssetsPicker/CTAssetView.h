@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class CTAssetsPickerAssetData, CTAssetView;
+@class CTAssetsPickerAssetData;
+@class CTAssetView;
 
 @protocol CTAssetViewDelegate <NSObject>
 

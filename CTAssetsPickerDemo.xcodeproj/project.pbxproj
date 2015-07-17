@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D470F2061B57A72700A54957 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D470F2051B57A72700A54957 /* AssetsLibrary.framework */; };
 		D484CC841B53473F001F391F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D484CC831B53473F001F391F /* main.m */; };
 		D484CC8F1B53473F001F391F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D484CC8E1B53473F001F391F /* Images.xcassets */; };
 		D484CC9E1B53473F001F391F /* CTAssetsPickerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D484CC9D1B53473F001F391F /* CTAssetsPickerDemoTests.m */; };
@@ -26,6 +27,7 @@
 		D486333C1B54F8D500F27DE8 /* CTAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D486332C1B54F8D500F27DE8 /* CTAssetsViewController.m */; };
 		D486333D1B54F8D500F27DE8 /* CTAssetsViewToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D486332E1B54F8D500F27DE8 /* CTAssetsViewToolBar.m */; };
 		D486333E1B54F8D500F27DE8 /* CTAssetView.m in Sources */ = {isa = PBXBuildFile; fileRef = D48633301B54F8D500F27DE8 /* CTAssetView.m */; };
+		D4BB06C91B58D61F00EE5A74 /* CTAssetsPreviewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BB06C81B58D61F00EE5A74 /* CTAssetsPreviewCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D470F2051B57A72700A54957 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D484CC7E1B53473F001F391F /* CTAssetsPickerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CTAssetsPickerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D484CC821B53473F001F391F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D484CC831B53473F001F391F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -78,6 +81,8 @@
 		D486332E1B54F8D500F27DE8 /* CTAssetsViewToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsViewToolBar.m; sourceTree = "<group>"; };
 		D486332F1B54F8D500F27DE8 /* CTAssetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetView.h; sourceTree = "<group>"; };
 		D48633301B54F8D500F27DE8 /* CTAssetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetView.m; sourceTree = "<group>"; };
+		D4BB06C71B58D61F00EE5A74 /* CTAssetsPreviewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsPreviewCollectionViewCell.h; sourceTree = "<group>"; };
+		D4BB06C81B58D61F00EE5A74 /* CTAssetsPreviewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsPreviewCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D470F2061B57A72700A54957 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +107,7 @@
 		D484CC751B53473F001F391F = {
 			isa = PBXGroup;
 			children = (
+				D470F2051B57A72700A54957 /* AssetsLibrary.framework */,
 				D48633141B54F8D500F27DE8 /* CTAssetsPicker */,
 				D484CC801B53473F001F391F /* CTAssetsPickerDemo */,
 				D484CC9A1B53473F001F391F /* CTAssetsPickerDemoTests */,
@@ -187,6 +194,8 @@
 				D486332E1B54F8D500F27DE8 /* CTAssetsViewToolBar.m */,
 				D486332F1B54F8D500F27DE8 /* CTAssetView.h */,
 				D48633301B54F8D500F27DE8 /* CTAssetView.m */,
+				D4BB06C71B58D61F00EE5A74 /* CTAssetsPreviewCollectionViewCell.h */,
+				D4BB06C81B58D61F00EE5A74 /* CTAssetsPreviewCollectionViewCell.m */,
 			);
 			path = CTAssetsPicker;
 			sourceTree = "<group>";
@@ -290,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4BB06C91B58D61F00EE5A74 /* CTAssetsPreviewCollectionViewCell.m in Sources */,
 				D48633311B54F8D500F27DE8 /* ALAsset+CTAssetEqual.m in Sources */,
 				D484CCCB1B5348B2001F391F /* CTAppDelegate.m in Sources */,
 				D484CCCE1B53493A001F391F /* CTAssetsPickerDemoViewController.m in Sources */,
@@ -427,6 +437,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "45a074d6-daee-4592-a1da-91834894685e";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -445,6 +456,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "45a074d6-daee-4592-a1da-91834894685e";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

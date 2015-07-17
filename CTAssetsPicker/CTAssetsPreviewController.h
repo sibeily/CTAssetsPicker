@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class CTAssetsPreviewController, CTAssetsPickerAssetData;
+@class CTAssetsPreviewController;
+@class CTAssetsPickerAssetData;
 
 @protocol CTAssetsPreviewControllerDelegate <NSObject>
 

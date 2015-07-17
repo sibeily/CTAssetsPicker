@@ -11,6 +11,7 @@
 
 @interface CTAssetView()<UIScrollViewDelegate>{
     UIImageView *_imageView;
+    BOOL _isZoom;
 }
 
 @end
@@ -52,11 +53,12 @@
 
 - (void)setAssetData:(CTAssetsPickerAssetData *)assetData{
     _imageView.image = [UIImage imageWithCGImage:[[assetData.asset defaultRepresentation] fullScreenImage]];
+    _isZoom = NO;
     [self adjustFrame];
 }
 
 - (void)adjustFrame{
-    if(_imageView.image != nil){
+    if(_imageView.image != nil && !CGSizeEqualToSize(self.bounds.size, CGSizeZero)){
         CGSize boundsSize = self.bounds.size;
         CGFloat boundsWidth = boundsSize.width;
         CGFloat boundsHeight = boundsSize.height;
@@ -64,10 +66,10 @@
         CGSize imageSize = _imageView.image.size;
         CGFloat imageWidth = imageSize.width;
         CGFloat imageHeight = imageSize.height;
-    
+        
         CGFloat height = imageHeight * boundsWidth / imageWidth;
         
-        CGFloat maximumZoomScale = 2.0;
+        CGFloat maximumZoomScale = 3.0;
         // 保证放大之后至少占满屏幕，太小的图片最大只能放大2倍
         CGFloat maxValue = MAX(_imageView.image.size.width, _imageView.image.size.height);
         CGFloat minValue = MIN(_imageView.image.size.width, _imageView.image.size.height);
@@ -102,6 +104,7 @@
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView{ // 保证缩放过长中居中显示
+    _isZoom = YES;
     CGRect imageViewFrame = _imageView.frame;
     imageViewFrame.origin.y = (self.bounds.size.height - _imageView.frame.size.height) * 0.5;
     imageViewFrame.origin.x = (self.bounds.size.width - _imageView.frame.size.width) * 0.5;
@@ -126,6 +129,7 @@
 }
 
 - (void)handleDoubleTap:(UITapGestureRecognizer *)tapGestureRecognizer{
+    _isZoom = YES;
     if(self.zoomScale < (self.maximumZoomScale + self.minimumZoomScale) * 0.5){
         [self setZoomScale:self.maximumZoomScale animated:YES];
     }else{
@@ -136,6 +140,14 @@
 - (void)didReceiveApplicationDidChangeStatusBarOrientationNotification:(NSNotification *)notification{
     // 横竖屏切换时居中显示
     _imageView.center = CGPointMake(self.bounds.size.width * 0.5, self.bounds.size.height * 0.5);
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    if(!_isZoom){
+        [self adjustFrame];
+    }
 }
 
 - (void)dealloc{
